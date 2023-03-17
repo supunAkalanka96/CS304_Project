@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "issue_table")
 public class Issue {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int issueId;
     private String description;
 
