@@ -17,7 +17,7 @@ public class Complain {
     private int complainId;
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "userId",referencedColumnName = "userId")
     private User user;
 

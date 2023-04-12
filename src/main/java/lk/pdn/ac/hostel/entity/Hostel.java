@@ -1,6 +1,7 @@
 package lk.pdn.ac.hostel.entity;
 
 import jakarta.persistence.*;
+import lk.pdn.ac.hostel.Enum.HostelType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,15 +19,15 @@ public class Hostel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int hostelId;
     private String hostelName;
-    private String hostelType;
-
+    private int noOfRooms;
+    @Enumerated(EnumType.STRING)
+    private HostelType hostelType;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId",referencedColumnName = "userId")
     private User user;
 
     @OneToMany(mappedBy = "hostel")
-    @JoinColumn(name = "roomId",referencedColumnName = "roomId")
-    private List<Room> rooms;
+     private List<Room> rooms;
 
     @OneToMany(mappedBy = "hostel")
     private List<Facility> facilities;

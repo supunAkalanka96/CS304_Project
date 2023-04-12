@@ -19,10 +19,6 @@ public class Login {
     private String password;
 
     @OneToOne
-    @JoinColumn(name = "roleId",referencedColumnName = "roleId")
-    private Role role;
-
-    @OneToOne
     @JoinColumn(name = "userId",referencedColumnName = "userId")
     private User user;
 }

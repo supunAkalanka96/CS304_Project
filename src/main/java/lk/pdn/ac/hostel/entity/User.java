@@ -1,6 +1,7 @@
 package lk.pdn.ac.hostel.entity;
 
 import jakarta.persistence.*;
+import lk.pdn.ac.hostel.Enum.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,16 +19,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
     private String userName;
-    private String userEmail;
     private String gender;
     private String mobile;
-    private String password;
 
-    @OneToOne
-    @JoinColumn(name = "roleId",referencedColumnName = "roleId")
+    @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user",cascade = CascadeType.REMOVE)
     private Login login;
 
     @OneToMany(mappedBy = "user")

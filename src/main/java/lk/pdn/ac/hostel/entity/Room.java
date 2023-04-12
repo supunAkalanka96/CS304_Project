@@ -19,6 +19,7 @@ public class Room {
     private String accessories;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "hostelId",referencedColumnName = "hostelId")
     private Hostel hostel;
 
 }
